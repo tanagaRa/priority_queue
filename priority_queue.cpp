@@ -1,5 +1,5 @@
 #include "priority_queue.h"
-
+//структура для связывания элементов очереди
 struct PriorityQueue::Node {  
  public:
   int value;
@@ -16,6 +16,7 @@ struct PriorityQueue::Node {
   Node() = default;                             
 };
 
+//описания констр-ра копирования
 PriorityQueue::PriorityQueue(const PriorityQueue& queue) {
   Node* current = queue.head_;
   while (current != nullptr) {
@@ -29,6 +30,7 @@ PriorityQueue::PriorityQueue(const PriorityQueue& queue) {
   size_ = queue.size_;
 }
 
+//опис-е констр-ра перемещения
 PriorityQueue::PriorityQueue(PriorityQueue&& queue) noexcept
     : head_(queue.head_),
       count_of_high_priority(queue.count_of_high_priority),
@@ -41,6 +43,7 @@ PriorityQueue::PriorityQueue(PriorityQueue&& queue) noexcept
   queue.count_of_low_priority = 0;
 }
 
+//копир-щий опер-р присваивания
 PriorityQueue& PriorityQueue::operator=(
     const PriorityQueue& queue) {
   if (this == &queue) {
@@ -55,6 +58,7 @@ PriorityQueue& PriorityQueue::operator=(
   return *this;
 }
 
+//перем-щий опер-р присв-я
 PriorityQueue& PriorityQueue::operator=(
     PriorityQueue&& queue) noexcept {
   if (this == &queue) {

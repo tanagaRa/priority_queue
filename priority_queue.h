@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 
+/*в задание требуется тип int, поэтому не использованы шаблоны*/
+
 class PriorityQueue {
  public:
   struct Node;
